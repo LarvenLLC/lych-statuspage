@@ -46,7 +46,7 @@ function useServices() {
 }
 
 async function logs(key: string): Promise<LogDaySummary[]> {
-    const response = await fetch(`https://raw.githubusercontent.com/mehatab/fettle/main/public/status/${key}_report.log`);
+    const response = await fetch(`https://raw.githubusercontent.com/${process.env.REPOSITORY}/main/public/status/${key}_report.log`);
 
     const text = await response.text();
     const lines = text.split("\n");
@@ -79,9 +79,9 @@ async function logs(key: string): Promise<LogDaySummary[]> {
         let status = ""
         if (logSummary.logs.length === 0) {
             status = "unknown"
-        } else if (logSummary.logs.every((item:any)=> item.status === 'success')) {
+        } else if (logSummary.logs.every((item: any) => item.status === 'success')) {
             status = Status.OPERATIONAL
-        } else if (logSummary.logs.every((item:any)=> item.status === 'failed')) {
+        } else if (logSummary.logs.every((item: any) => item.status === 'failed')) {
             status = Status.OUTAGE
         } else {
             status = Status.PARTIAL_OUTAGE
