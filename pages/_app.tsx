@@ -1,6 +1,7 @@
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import Head from "next/head";
+import { ThemeProvider } from "next-themes";
 
 function MyApp({ Component, pageProps }: AppProps) {
 	return (
@@ -8,7 +9,9 @@ function MyApp({ Component, pageProps }: AppProps) {
 			<Head>
 				<title>Lych System Status</title>
 			</Head>
-			<Component {...pageProps} />
+			<ThemeProvider>
+				<Component {...pageProps} />
+			</ThemeProvider>
 		</>
 	);
 }
