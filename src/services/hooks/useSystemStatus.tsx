@@ -26,7 +26,7 @@ function useSystemStatus() {
 
                     services.push(status);
                 }
-                
+
                 if (services.every((item) => item.status === "success")) {
                     setSystemStatus({
                         title: "All System Operational",
@@ -38,7 +38,7 @@ function useSystemStatus() {
                         title: "Outage",
                         status: Status.OUTAGE,
                         datetime: services[0].date
-                     });
+                    });
                 } else if (services.every((item) => item.status === "")) {
                     setSystemStatus({
                         title: "Unknown",
@@ -61,11 +61,11 @@ function useSystemStatus() {
         loadData();
     }, []);
 
-    return {systemStatus, isLoading, error};
+    return { systemStatus, isLoading, error };
 }
 
 async function logs(key: string): Promise<ServiceStatus> {
-    const response = await fetch(`https://raw.githubusercontent.com/mehatab/fettle/main/public/status/${key}_report.log`);
+    const response = await fetch(`https://raw.githubusercontent.com/${process.env.REPOSITORY}/main/public/status/${key}_report.log`);
     const text = await response.text();
     const lines = text.split("\n");
     try {
