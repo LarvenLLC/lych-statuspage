@@ -9,7 +9,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 			<Head>
 				<title>Lych System Status</title>
 			</Head>
-			<ThemeProvider>
+			<ThemeProvider attribute="class">
 				<Component {...pageProps} />
 			</ThemeProvider>
 		</>
