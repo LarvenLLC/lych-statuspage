@@ -26,10 +26,10 @@ function useSystemStatus() {
 
                     services.push(status);
                 }
-console.log('services', services)
+
                 if (services.every((item) => item.status === "success")) {
                     setSystemStatus({
-                        title: "All System Operational",
+                        title: "All Systems Operational",
                         status: Status.OPERATIONAL,
                         datetime: services[0].date
                     });
