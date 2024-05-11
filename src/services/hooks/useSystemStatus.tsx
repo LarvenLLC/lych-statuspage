@@ -26,7 +26,7 @@ function useSystemStatus() {
 
                     services.push(status);
                 }
-
+console.log('services', services)
                 if (services.every((item) => item.status === "success")) {
                     setSystemStatus({
                         title: "All System Operational",
@@ -65,7 +65,7 @@ function useSystemStatus() {
 }
 
 async function logs(key: string): Promise<ServiceStatus> {
-    const response = await fetch(`https://raw.githubusercontent.com/${process.env.REPOSITORY}/main/public/status/${key}_report.log`);
+    const response = await fetch(`https://raw.githubusercontent.com/${process.env.REPOSITORY_NAME}/main/public/status/${key}_report.log`);
     const text = await response.text();
     const lines = text.split("\n");
     try {
