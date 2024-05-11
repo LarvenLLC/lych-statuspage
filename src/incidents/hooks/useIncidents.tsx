@@ -11,7 +11,7 @@ function useIncidents() {
         const loadData = async () => {
             setIsLoading(true);
             try {
-                const response = await fetch(`${process.env.REPOSITORIES_API_BASE_URL}/${process.env.REPOSITORY}/issues?per_page=20&state=all&labels=incident`);
+                const response = await fetch(`${process.env.REPOSITORIES_API_BASE_URL}/${process.env.REPOSITORY_NAME}/issues?per_page=20&state=all&labels=incident`);
                 const issues = await response.json();
                 console.log('issues', issues)
                 const monthlyIncident = devideMonthly(issues.map((issue: any) => ({
