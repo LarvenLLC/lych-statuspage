@@ -47,7 +47,7 @@ const ServicesSection: NextPage = () => {
                     </div>
                 </div>
             </div>
-            <div className="mx-px mt-10 md:ml-60 md:mr-60">
+            <div className="mx-px mt-10 md:ml-60 md:mr-60 mb-5">
                 <div className="card-body">
                     {
                         isServicesLoading ? (
@@ -63,10 +63,10 @@ const ServicesSection: NextPage = () => {
                         )
                     }
                 </div>
-                <p className="mt-10 sm:text-lg	text-base font-semibold leading-7 text-gray-900">Recent incident</p>
+                <p className="mt-10 sm:text-lg	text-base font-semibold leading-7 text-gray-900 dark:text-gray-400">Recent incident</p>
                 <IncidentsSection />
             </div>
-        </div >
+        </div>
     )
 }
 
