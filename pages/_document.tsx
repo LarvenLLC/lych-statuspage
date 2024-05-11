@@ -3,6 +3,7 @@ import { useTheme } from "next-themes";
 
 export default function Document() {
     const { resolvedTheme } = useTheme();
+    console.log('resolvedTheme', resolvedTheme)
     return (
         <Html className={resolvedTheme}>
             <Head />
